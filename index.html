@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CineVibe — Programação</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">CV</div>
+      <div>
+        <h1>CineVibe</h1>
+        <p class="lead">Filmes e sessões atualizadas em tempo real</p>
+      </div>
+    </div>
+    <nav>
+      <button class="btn" id="btn-home">Início</button>
+      <button class="btn" data-city="rj">Rio de Janeiro</button>
+      <button class="btn" data-city="sp">São Paulo</button>
+      <button class="btn primary" id="btn-ingressos">Comprar ingresso</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <div class="search">
+          <input id="search" placeholder="Buscar por filme, horário, cidade ou status..." />
+          <button class="btn">🔍</button>
+        </div>
+
+        <h4 style="margin-top:18px">Filtrar por estado</h4>
+        <div class="filters" role="tablist">
+          <button class="chip active" data-status="all">Todos</button>
+          <button class="chip" data-status="now">Em cartaz</button>
+          <button class="chip" data-status="soon">Em breve</button>
+          <button class="chip" data-status="premiere">Pré-estreia</button>
+          <button class="chip" data-status="closed">Encerrado</button>
+        </div>
+
+        <div class="grid" id="movies"></div>
+      </div>
+
+      <aside class="card">
+        <div class="poster" style="background-image:url('https://images.unsplash.com/photo-1517604931442-7a1fd0ed9d3f?auto=format&fit=crop&w=800&q=60');">
+          Destaque
+        </div>
+        <h3 style="margin-top:12px">🎬 Semana do cinema nacional</h3>
+        <p class="lead" style="color:var(--muted);margin-top:6px">Ingressos com 50% off — até domingo!</p>
+      </aside>
+    </section>
+
+    <section id="modal" class="modal" aria-hidden="true">
+      <div class="modal-card">
+        <div class="poster" id="modal-thumb"></div>
+        <div>
+          <div class="row">
+            <div>
+              <h2 id="modal-title"></h2>
+              <p id="modal-status" class="badge"></p>
+            </div>
+            <button class="close" id="modal-close">✕</button>
+          </div>
+          <p id="modal-desc" class="m-desc"></p>
+
+          <h4>Horários disponíveis</h4>
+          <ul id="modal-times"></ul>
+
+          <h4>Localização</h4>
+          <iframe id="map" class="map" loading="lazy"></iframe>
+
+          <button id="buyBtn" class="btn primary full">Comprar ingresso</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Atualizado em <span id="datetime"></span>
+    </footer>
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
