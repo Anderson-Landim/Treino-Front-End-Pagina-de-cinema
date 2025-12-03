@@ -4,18 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CineVibe — Programação</title>
+
+  <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
     <div class="brand">
       <div class="logo">CV</div>
       <div>
         <h1>CineVibe</h1>
-        <p class="lead">Filmes e sessões atualizadas em tempo real</p>
+        <p class="lead">Filmes e sessões em tempo real</p>
       </div>
     </div>
+
     <nav>
       <button class="btn" id="btn-home">Início</button>
       <button class="btn" data-city="rj">Rio de Janeiro</button>
@@ -24,15 +31,24 @@
     </nav>
   </header>
 
+  <!-- CONTEÚDO PRINCIPAL -->
   <main class="container">
+
+    <!-- HERO -->
     <section class="hero">
+
+      <!-- COLUNA ESQUERDA -->
       <div class="card">
+
+        <!-- BUSCA -->
         <div class="search">
-          <input id="search" placeholder="Buscar por filme, horário, cidade ou status..." />
+          <input id="search" placeholder="Buscar por filme, horário, cidade..." />
           <button class="btn">🔍</button>
         </div>
 
+        <!-- FILTROS -->
         <h4 style="margin-top:18px">Filtrar por estado</h4>
+
         <div class="filters" role="tablist">
           <button class="chip active" data-status="all">Todos</button>
           <button class="chip" data-status="now">Em cartaz</button>
@@ -41,47 +57,68 @@
           <button class="chip" data-status="closed">Encerrado</button>
         </div>
 
+        <!-- GRID DE FILMES -->
         <div class="grid" id="movies"></div>
+
       </div>
 
-      <aside class="card">
+      <!-- COLUNA DIREITA (Destaque) -->
+      <aside class="card1">
         <div class="poster" style="background-image:url('https://cinema10.com.br/upload/filmes/filmes_11149_velozes-e-furiosos-10-poster-nacional.jpg');">
           Destaque
         </div>
-        <h3 style="margin-top:12px">🎬 Semana do cinema nacional</h3>
-        <p class="lead" style="color:var(--muted);margin-top:6px">Ingressos com 50% off — até domingo!</p>
+
+        <h3 style="margin-top:14px">🎬 Semana do cinema nacional</h3>
+        <p class="lead" style="color:var(--muted);margin-top:6px">
+          Ingressos com 50% OFF — até domingo!
+        </p>
       </aside>
+
     </section>
 
+    <!-- MODAL -->
     <section id="modal" class="modal" aria-hidden="true">
       <div class="modal-card">
+
+        <!-- Poster -->
         <div class="poster" id="modal-thumb"></div>
-        <div>
+
+        <!-- Conteúdo -->
+        <div class="modal-body">
+          
           <div class="row">
             <div>
               <h2 id="modal-title"></h2>
               <p id="modal-status" class="badge"></p>
             </div>
+
             <button class="close" id="modal-close">✕</button>
           </div>
+
           <p id="modal-desc" class="m-desc"></p>
 
+          <!-- Horários -->
           <h4>Horários disponíveis</h4>
           <ul id="modal-times"></ul>
 
+          <!-- Mapa -->
           <h4>Localização</h4>
           <iframe id="map" class="map" loading="lazy"></iframe>
 
           <button id="buyBtn" class="btn primary full">Comprar ingresso</button>
         </div>
+
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
       Atualizado em <span id="datetime"></span>
     </footer>
+
   </main>
 
-<script src="script.js"></script>
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
 </html>
